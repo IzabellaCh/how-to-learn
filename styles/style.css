@@ -1,7 +1,15 @@
+/* Сбросила все margin и padding, при оценке ширины страницы 1100-1140px
+(с помощью dimensios: responsive) у меня горизонтального скролла нет.
+При проверке этой же ширины экрана с использованием devtools
+скролл появляется при ширине меньше 1116px, считаю, что это за счет области наложения вертикального скролла,
+ширина которой равна примерно 16px
+*/
+
 .page {
   min-width: 1100px;
   max-width: 1600px;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -10,6 +18,7 @@
   min-height: 600px;
   max-height: 756px;
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -20,19 +29,21 @@
 
 .logo {
   margin: 0;
+  padding: 0;
   height: 32px;
   width: 228px;
 }
 
-.logo_place_header {
+.logo__place_header {
   position: absolute;
   top: 30px;
   left: 64px;
   z-index: 3;
 }
 
-.title {
+.header__title {
   margin: 0;
+  padding: 0;
   width: 730px;
   z-index: 2;
   line-height: 96px;
@@ -42,8 +53,9 @@
   color: #000000;
   }
 
-.subtitle {
+.header__subtitle {
   margin: 0;
+  padding: 0;
   width: 388px;
   position: absolute;
   bottom: 30px;
@@ -57,10 +69,13 @@
 .link {
   color: #2f80ed;
   text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 
-.main-illustration {
+.header__main-illustration {
   margin: 0;
+  padding: 0;
   width: 765px;
   height: 608px;
   position: absolute;
@@ -69,8 +84,9 @@
   z-index: 1;
 }
 
-.square-pic {
+.header__square-pic {
   margin: 0;
+  padding: 0;
   height: 568px;
   width: 568px;
   background-color: #2f80ed;
@@ -79,16 +95,22 @@
   right: 0;
 }
 
+.content {
+  margin: 0;
+  padding: 0;
+}
+
 .description {
   margin: 0;
-  padding-top: 100px;
+  padding: 100px 0px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   }
 
-.two-columns {
+.description__two-columns {
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -96,8 +118,9 @@
   width: 80%;
 }
 
-.brief {
+.description__brief {
   margin: 0;
+  padding: 0;
   width: 175px;
   line-height: 1.2;
   font-size: 18px;
@@ -106,8 +129,9 @@
   color: #2f80ed;
 }
 
-.maim-text {
+.description__main-text {
   margin: 0;
+  padding: 0;
   width: 80%;
   min-width: 784px;
   line-height: 34px;
@@ -117,15 +141,18 @@
   color: #000000;
  }
 
-.paragraph {
-    margin: 0;
+.description__paragraph {
+  margin: 0;
+  padding: 0px 0px 30px;
 }
 
-.paragraph_margin {
-  margin: 30px 0px;
+.description__paragraph:last-of-type {
+  padding: 0;
 }
 
 .span-accent {
+  margin: 0;
+  padding: 0;
   line-height: 34px;
   font-size: 24px;
   font-weight: bold;
@@ -133,89 +160,80 @@
 
 .digits {
   margin: 0;
+  padding: 100px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 100px 0px;
-}
+  }
 
 .section-title {
   margin: 0;
+  padding: 0;
   width: 60%;
   line-height: 1.15;
   font-size: 60px;
   font-weight: bold;
   text-align: center;
   z-index: 2;
-}
-
-.section-title_theme_light {
   color: #000000;
 }
 
 .section-subtitle {
   margin: 20px 0px 0px;
+  padding: 0;
   width: 60%;
   line-height: 34px;
   font-size: 24px;
   font-weight: normal;
   text-align: center;
   z-index: 2;
-}
-
-.section-subtitle_theme_light {
   color: #000000;
 }
 
 .table {
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.table_theme_light {
   width: 1100px;
 }
 
-.table__cell_theme-light {
+
+.table__cell {
   width: 250px;
   color: #000000;
   margin: 60px 0px 0px;
+  padding: 0;
   list-style: none;
 }
 
 .table__heading {
   margin: 0;
+  padding: 0;
   line-height: 1.15;
   font-size: 24px;
   font-weight: bold;
   text-align: left;
- }
-
-.table__heading_theme_light {
   color: #000000;
-}
+ }
 
 .table__text {
   margin: 20px 0px 0px;
+  padding: 0;
   line-height: 1.2;
   font-size: 18px;
   font-weight: normal;
-  color: #000000;
   text-align: left;
-}
-
-.table__text_theme_light {
   color: #000000;
 }
 
 .feynman {
   margin: 0;
-  padding-top: 100px;
+  padding: 100px 0px 0px;
   min-height: 750px;
   position: relative;
   background-color: #f2f2f2;
@@ -230,6 +248,7 @@
   bottom: 0;
   left: 0;
   margin: 0;
+  padding: 0;
   width: 867px;
   height: 637px;
   z-index: 0;
@@ -237,6 +256,7 @@
 
 .feynman__title {
   margin: 0;
+  padding: 0;
   line-height: 1.15;
   font-size: 120px;
   font-weight: bold;
@@ -248,7 +268,7 @@
 
 .feynman__subtitle {
   margin: 0;
-  padding-top: 70px;
+  padding: 70px 0px 0px;
   line-height: 51px;
   font-size: 36px;
   font-weight: normal;
@@ -259,6 +279,7 @@
 
 .feynman__link {
   margin: 0;
+  padding: 0;
   position: absolute;
   top: 50%;
   right: 48px;
@@ -279,7 +300,7 @@
   overflow: hidden;
 }
 
-.table_theme_dark {
+.table__theme_dark {
   max-width: 1100px;
   z-index: 2;
 }
@@ -309,6 +330,7 @@
 
 .kaufman__triangle {
   margin: 0;
+  padding: 0;
   position: absolute;
   right: -210px;
   top: 0;
@@ -328,6 +350,7 @@
 
 .footer__columns {
   margin: 0;
+  padding: 0;
   width: 90%;
   display: flex;
   flex-direction: row;
@@ -335,8 +358,9 @@
   color: #ffffff;
 }
 
-.column__content_copyright {
+.footer__content_copyright {
   margin: 0;
+  padding: 0;
   flex-basis: 711px;
   display: flex;
   flex-direction: column;
@@ -344,7 +368,7 @@
   justify-content: space-between;
 }
 
-.author {
+.footer__author {
   margin: 0;
   padding: 18px 0px;
   line-height: 25px;
@@ -352,21 +376,23 @@
   font-weight: normal;
 }
 
-.column-heading {
+.footer__column-heading {
   margin: 0;
+  padding: 0;
   line-height: 30px;
   font-size: 18px;
   font-weight: bold;
 }
 
-.column-links {
+.footer__column-links {
   margin: 0;
   padding: 20px 0px 16px;
   list-style: none;
 }
 
-.column-link {
+.footer__column-link {
   margin: 0;
+  padding: 0;
   line-height: 30px;
   font-size: 18px;
   font-weight: normal;
@@ -374,9 +400,9 @@
   text-decoration: none;
 }
 
-.social-icon {
+.footer__social-icon {
   margin: 0;
   width: 16px;
   height: 16px;
-  padding-right: 10px;
+  padding: 0px 10px 0px 0px;
 }
