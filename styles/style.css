@@ -1,10 +1,3 @@
-/* Сбросила все margin и padding, при оценке ширины страницы 1100-1140px
-(с помощью dimensios: responsive) у меня горизонтального скролла нет.
-При проверке этой же ширины экрана с использованием devtools
-скролл появляется при ширине меньше 1116px, считаю, что это за счет области наложения вертикального скролла,
-ширина которой равна примерно 16px
-*/
-
 .page {
   min-width: 1100px;
   max-width: 1600px;
@@ -34,7 +27,7 @@
   width: 228px;
 }
 
-.logo__place_header {
+.logo_place_header {
   position: absolute;
   top: 30px;
   left: 64px;
@@ -42,14 +35,13 @@
 }
 
 .header__title {
-  margin: 0;
+  margin: 0 0 0 64px;
   padding: 0;
-  width: 730px;
+  max-width: 730px;
   z-index: 2;
   line-height: 96px;
   font-size: 102px;
   font-weight: bold;
-  padding-left: 64px;
   color: #000000;
   }
 
@@ -108,7 +100,7 @@
   justify-content: center;
   }
 
-.description__two-columns {
+.two-columns {
   margin: 0;
   padding: 0;
   display: flex;
@@ -118,7 +110,7 @@
   width: 80%;
 }
 
-.description__brief {
+.two-columns__brief {
   margin: 0;
   padding: 0;
   width: 175px;
@@ -129,7 +121,7 @@
   color: #2f80ed;
 }
 
-.description__main-text {
+.two-columns__main-text {
   margin: 0;
   padding: 0;
   width: 80%;
@@ -141,16 +133,16 @@
   color: #000000;
  }
 
-.description__paragraph {
+.two-columns__paragraph {
   margin: 0;
-  padding: 0px 0px 30px;
+  padding: 0 0 30px;
 }
 
-.description__paragraph:last-of-type {
+.two-columns__paragraph:last-of-type {
   padding: 0;
 }
 
-.span-accent {
+.two-columns__span-accent {
   margin: 0;
   padding: 0;
   line-height: 34px;
@@ -197,16 +189,48 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: flex-start;
   width: 1100px;
+  column-gap: 2%;
+  justify-content: center;
+
+  /*
+  оставила justify-content: center,
+  тк без него при наличии только отступа между элементами в 2%
+  и с меньшим количеством элементов в строке (2-3),
+  элементы будут располагаться с начала строки
+
+  2% - приемлемый процент для 4-5 элементов в строке,
+  т.е. подходит для table и table__theme_dark,
+  при проценте отступа 2.5% 5 элементов по 200px шириной в table__theme_dark не умещаются
+
+  теоретически, можно вычислить отступы, но этот вариант НЕ универсальный,
+  его нужно прописывать для каждого конкретного случая,
+  вычисление производится только по указанному количеству колонн (4) и расстояний между ними (3),
+  соответсвенно, для использования его в table__theme_dark эти переменные нужно снова вводить самостоятельно,
+  слишком много кода получается и самостоятельной оценки ситуации
+  насколько поняла, нет такого инструмента (html/css), который позволил бы браузеру посчитать количество элементов
+  и провести вычисления с этими переменными,
+  поэтому рациональнее выбирать justify-content: space-between при количестве элементов 4 и более
+
+  вот пример вычисления отступов для table:
+  --widthA: 1100px;
+  --widthB: 250px;
+  column-gap: calc((var(--widthA) - 4 * var(--widthB)) / 3);
+
+  для table__theme_dark,
+  --widthA: 1100px;
+  --widthB: 200px;
+  column-gap: calc((var(--widthA) - 5 * var(--widthB)) / 4);
+  */
+
 }
 
 
 .table__cell {
   width: 250px;
   color: #000000;
-  margin: 60px 0px 0px;
+  margin: 60px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -267,8 +291,8 @@
 }
 
 .feynman__subtitle {
-  margin: 0;
-  padding: 70px 0px 0px;
+  margin: 70px 0px 0px;
+  padding: 0;
   line-height: 51px;
   font-size: 36px;
   font-weight: normal;
@@ -300,7 +324,7 @@
   overflow: hidden;
 }
 
-.table__theme_dark {
+.table_theme_dark {
   max-width: 1100px;
   z-index: 2;
 }
@@ -313,7 +337,7 @@
   color:  #ffffff;
 }
 
-.table__cell_theme-dark {
+.table__cell_theme_dark {
   width: 200px;
   color:  #ffffff;
   margin: 80px 0px 0px;
@@ -346,6 +370,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  min-height: 350px;
+  box-sizing: border-box;
 }
 
 .footer__columns {
@@ -358,7 +384,7 @@
   color: #ffffff;
 }
 
-.footer__content_copyright {
+.footer__column_content_copyright {
   margin: 0;
   padding: 0;
   flex-basis: 711px;
@@ -401,8 +427,8 @@
 }
 
 .footer__social-icon {
-  margin: 0;
+  margin: 0 10px 0 0;
   width: 16px;
   height: 16px;
-  padding: 0px 10px 0px 0px;
+  padding: 0;
 }
