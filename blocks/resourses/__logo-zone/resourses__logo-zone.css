@@ -1,0 +1,15 @@
+:root {
+  --widthA: 1100px;
+}
+
+.resourses__logo-zone {
+  margin: 80px 0 217px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 1100px;
+  --widthB: 270px;
+  column-gap: calc((var(--widthA) - 4 * var(--widthB)) / 3);
+  align-items: flex-start;
+}

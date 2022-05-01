@@ -1,0 +1,6 @@
+.table_theme_dark {
+  max-width: 1100px;
+  z-index: 2;
+    --widthB: 200px;
+  column-gap: calc((var(--widthA) - 5 * var(--widthB)) / 4);
+}
