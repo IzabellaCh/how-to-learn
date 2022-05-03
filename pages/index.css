@@ -1,5 +1,5 @@
 /*normalize*/
-@import url(../styles/normalize.css);
+@import url(../vendor/normalize.css);
 /*page*/
 @import url(../blocks/page/page.css);
 /*logo*/
